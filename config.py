@@ -11,8 +11,8 @@ CHANNELS_IMG = 3
 L1_LAMBDA = 100
 LAMBDA_GP = 10
 NUM_EPOCHS = 500
-LOAD_MODEL = True
-SAVE_MODEL = False
+LOAD_MODEL = False
+SAVE_MODEL = True
 CHECKPOINT_DISC = "/kaggle/working/disc.pth.tar"
 CHECKPOINT_GEN = "/kaggle/working/gen.pth.tar"
 
