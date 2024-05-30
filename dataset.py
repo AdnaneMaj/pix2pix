@@ -1,5 +1,5 @@
 import numpy as np
-import config
+import pix2pix.config
 import os
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
