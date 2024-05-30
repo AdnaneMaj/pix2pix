@@ -1,5 +1,5 @@
 import torch
-import config
+import pix2pix.config
 from torchvision.utils import save_image
 
 def save_some_examples(gen, val_loader, epoch, folder):
