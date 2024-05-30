@@ -25,12 +25,12 @@ class MapDataset(Dataset):
         input_image = np.array(Image.open(img_path_input))
         target_image = np.array(Image.open(img_path_target))
 
-        augmentations = config.both_transform(image=input_image, image0=target_image)
+        augmentations = pix2pix.config.both_transform(image=input_image, image0=target_image)
         input_image = augmentations["image"]
         target_image = augmentations["image0"]
 
-        input_image = config.transform_only_input(image=input_image)["image"]
-        target_image = config.transform_only_mask(image=target_image)["image"]
+        input_image = pix2pix.config.transform_only_input(image=input_image)["image"]
+        target_image = pix2pix.config.transform_only_mask(image=target_image)["image"]
 
         return input_image, target_image
 
