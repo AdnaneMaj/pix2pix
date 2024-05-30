@@ -11,13 +11,14 @@ CHANNELS_IMG = 3
 L1_LAMBDA = 100
 LAMBDA_GP = 10
 NUM_EPOCHS = 500
-LOAD_MODEL = False
+LOAD_MODEL = True
 SAVE_MODEL = False
-CHECKPOINT_DISC = "disc.pth.tar"
-CHECKPOINT_GEN = "gen.pth.tar"
+CHECKPOINT_DISC = "/kaggle/working/disc.pth.tar"
+CHECKPOINT_GEN = "/kaggle/working/gen.pth.tar"
 
 both_transform = A.Compose(
-    [A.Resize(width=512, height=512),], additional_targets={"image0": "image"},
+    [A.Resize(width=512, height=512),
+    A.Rotate(limit=(0, 360), p=1.0),], additional_targets={"image0": "image"},
 )
 
 transform_only_input = A.Compose(
