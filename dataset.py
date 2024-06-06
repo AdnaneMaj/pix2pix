@@ -7,11 +7,7 @@ from torchvision.utils import save_image
 
 
 class MapDataset(Dataset):
-<<<<<<< HEAD
-    def __init__(self, root_dir_input = "D:/2A/Projet_PFA/Drive_data/seg/seg/",root_dir_target = "D:/2A/Projet_PFA/Drive_data/rgb/images/"):
-=======
     def __init__(self, root_dir_input = "/kaggle/input/driveeee/Drive_data/seg/seg",root_dir_target = "/kaggle/input/driveeee/Drive_data/rgb/images"):
->>>>>>> 16b945e3e7e6ee3b2191c10c8263ec35930e2c6f
         self.root_dir_input = root_dir_input
         self.root_dir_target = root_dir_target
         self.list_files_input = os.listdir(self.root_dir_input)
