@@ -20,7 +20,7 @@ both_transform = A.Compose(
         A.Resize(width=512, height=512),
         A.HorizontalFlip(p=0.5),
         A.VerticalFlip(p=0.5),
-        A.Rotate(limit=15, p=0.5),
+        A.Rotate(limit=90, p=0.9),
     ], additional_targets={"image0": "image"},
 )
 
