@@ -1,5 +1,5 @@
 import numpy as np
-import config
+import pix2pix.config
 import os
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
@@ -7,7 +7,11 @@ from torchvision.utils import save_image
 
 
 class MapDataset(Dataset):
+<<<<<<< HEAD
     def __init__(self, root_dir_input = "D:/2A/Projet_PFA/Drive_data/seg/seg/",root_dir_target = "D:/2A/Projet_PFA/Drive_data/rgb/images/"):
+=======
+    def __init__(self, root_dir_input = "/kaggle/input/driveeee/Drive_data/seg/seg",root_dir_target = "/kaggle/input/driveeee/Drive_data/rgb/images"):
+>>>>>>> 16b945e3e7e6ee3b2191c10c8263ec35930e2c6f
         self.root_dir_input = root_dir_input
         self.root_dir_target = root_dir_target
         self.list_files_input = os.listdir(self.root_dir_input)
@@ -25,12 +29,12 @@ class MapDataset(Dataset):
         input_image = np.array(Image.open(img_path_input))
         target_image = np.array(Image.open(img_path_target))
 
-        augmentations = config.both_transform(image=input_image, image0=target_image)
+        augmentations = pix2pix.config.both_transform(image=input_image, image0=target_image)
         input_image = augmentations["image"]
         target_image = augmentations["image0"]
 
-        input_image = config.transform_only_input(image=input_image)["image"]
-        target_image = config.transform_only_mask(image=target_image)["image"]
+        input_image = pix2pix.config.transform_only_input(image=input_image)["image"]
+        target_image = pix2pix.config.transform_only_mask(image=target_image)["image"]
 
         return input_image, target_image
 

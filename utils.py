@@ -1,10 +1,10 @@
 import torch
-import config
+import pix2pix.config
 from torchvision.utils import save_image
 
 def save_some_examples(gen, val_loader, epoch, folder):
     x, y = next(iter(val_loader))
-    x, y = x.to(config.DEVICE), y.to(config.DEVICE)
+    x, y = x.to(pix2pix.config.DEVICE), y.to(pix2pix.config.DEVICE)
     gen.eval()
     with torch.no_grad():
         y_fake = gen(x)
@@ -26,8 +26,8 @@ def save_checkpoint(model, optimizer, filename="my_checkpoint.pth.tar"):
 
 
 def load_checkpoint(checkpoint_file, model, optimizer, lr):
-    print("=> Loading checkpoint")
-    checkpoint = torch.load(checkpoint_file, map_location=config.DEVICE)
+    print("=> Loading checkpoint") ################
+    checkpoint = torch.load(checkpoint_file, map_location=pix2pix.config.DEVICE)
     model.load_state_dict(checkpoint["state_dict"])
     optimizer.load_state_dict(checkpoint["optimizer"])
 
