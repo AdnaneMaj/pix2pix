@@ -7,7 +7,7 @@ from torchvision.utils import save_image
 
 
 class MapDataset(Dataset):
-    def __init__(self, root_dir_input = "D:/2A/Projet_PFA/AdnGAN/Drive_data/seg/seg/",root_dir_target = "D:/2A/Projet_PFA/AdnGAN/Drive_data/rgb/images/"):
+    def __init__(self, root_dir_input = "D:/2A/Projet_PFA/Drive_data/seg/seg/",root_dir_target = "D:/2A/Projet_PFA/Drive_data/rgb/images/"):
         self.root_dir_input = root_dir_input
         self.root_dir_target = root_dir_target
         self.list_files_input = os.listdir(self.root_dir_input)
@@ -40,8 +40,7 @@ if __name__ == "__main__":
     loader = DataLoader(dataset, batch_size=5)
     for x, y in loader:
         print(x.shape)
-        save_image(x, "x.png")
-        save_image(y, "y.png")
+        print(y.shape)
         import sys
 
         sys.exit()
